@@ -14,7 +14,7 @@ interface ZoomControlsProps {
 export const ZoomControls = memo<ZoomControlsProps>(
   ({ theme, onToggleCollapse, isCollapsed, onExpandAll, onCollapseAll }) => {
     const { getZoom, setViewport, getViewport } = useReactFlow();
-    const [zoomLevel, setZoomLevel] = useState<number>(100);
+    const [zoomLevel, setZoomLevel] = useState<number>(120);
 
     const snapToStep = useCallback((zoom: number) => {
       const step = 10;
@@ -37,8 +37,8 @@ export const ZoomControls = memo<ZoomControlsProps>(
 
     useEffect(() => {
       const reset = () => {
-        setViewport({ ...getViewport(), zoom: 1 }, { duration: 0 });
-        setZoomLevel(100);
+        setViewport({ ...getViewport(), zoom: 1.2 }, { duration: 0 });
+        setZoomLevel(120);
       };
       const timer = setTimeout(reset, 100);
       return () => clearTimeout(timer);
